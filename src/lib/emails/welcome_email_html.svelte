@@ -18,7 +18,7 @@
 <html lang="en">
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
     <title>Simple Transactional Email</title>
     <style media="all" type="text/css">
       @media all {
@@ -116,6 +116,7 @@
       width="100%"
       bgcolor="#f4f5f6"
     >
+      <tbody>
       <tr>
         <td
           style="font-family: Helvetica, sans-serif; font-size: 16px; vertical-align: top;"
@@ -147,6 +148,7 @@
               width="100%"
             >
               <!-- START MAIN CONTENT AREA -->
+              <tbody>
               <tr>
                 <td
                   class="wrapper"
@@ -195,10 +197,10 @@
                                   align="center"
                                 >
                                   <a
-                                    href="https://github.com/CriticalMoments/CMSaasStarter"
+                                    href="https://github.com/madhukarkumar/saas-starter"
                                     target="_blank"
                                     style="border: solid 2px #0867ec; border-radius: 4px; box-sizing: border-box; cursor: pointer; display: inline-block; font-size: 16px; font-weight: bold; margin: 0; padding: 12px 24px; text-decoration: none; text-transform: capitalize; background-color: #0867ec; border-color: #0867ec; color: #ffffff;"
-                                    >View SaaS Starter Docs</a
+                                    >View Full Stack Starter Pack Docs</a
                                   >
                                 </td>
                               </tr>
@@ -215,6 +217,7 @@
                   </p>
                 </td>
               </tr>
+              </tbody>
 
               <!-- END MAIN CONTENT AREA -->
             </table>
@@ -232,6 +235,7 @@
                 style="border-collapse: separate; mso-table-lspace: 0pt; mso-table-rspace: 0pt; width: 100%;"
                 width="100%"
               >
+                <tbody>
                 <tr>
                   <td
                     class="content-block"
@@ -274,6 +278,7 @@
                     >
                   </td>
                 </tr>
+                </tbody>
               </table>
             </div>
 
@@ -287,6 +292,7 @@
           valign="top">&nbsp;</td
         >
       </tr>
+      </tbody>
     </table>
   </body>
 </html>

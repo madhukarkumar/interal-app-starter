@@ -1,27 +1,27 @@
 <div align="center">
     <img width="720" alt="SaaS Starter Header reading: The open source, fast, and free to host SaaS template" src="https://github.com/startino/saas-starter/blob/assets/banner.png">
 
-[![GitHub Repo stars](https://img.shields.io/github/stars/startino/saas-starter)](https://github.com/startino/saas-starter)
+[![GitHub Repo stars](https://img.shields.io/github/stars/madhukarkumar/saas-starter)](https://github.com/madhukarkumar/saas-starter)
 
 
   <a href="https://saasstarter.work"><strong>Demo & Homepage (CMSaasStarter's for now)</strong></a> •
-  <a href="https://github.com/startino/saas-starter#quick-start"><strong>Quick Start Guide</strong></a> • 
+  <a href="https://github.com/madhukarkumar/saas-starter#quick-start"><strong>Quick Start Guide</strong></a> • 
 </div>
 
 <br/>
 
-# SaaS Starter: A SvelteKit Boilerplate/Template
+# Full Stack Starter Pack: A SvelteKit Boilerplate/Template
 
 - [Feature Rich](#features): user auth, user dashboard, marketing site, blog engine, billing/subscriptions, pricing page, search, emails, and more.
 - [Lightning Performance](#performance--best-practices): fast pre-rendered pages which score 100/100 on Google PageSpeed.
 - [Delighful Developer Experience](#tech-stack): tools you'll love working with, including SvelteKit, Tailwind, Shadcn-svelte, Superforms, Postgres, and Supabase.
 - Extensible: all the tools you need to make additional marketing pages, UI components, user dashboards, admin portals, database backends, API endpoints, and more.
 - [Hosting](#suggested-hosting-stack): Our suggested hosting stack is free to host, cheap to scale, easy to manage, and includes automatic deployments.
-- [MIT Open Source](https://github.com/startino/saas-starter/blob/main/LICENSE)
+- [MIT Open Source](https://github.com/madhukarkumar/saas-starter/blob/main/LICENSE)
 - [Fully Functional Demo](https://saasstarter.work)
 - [Quick Start](#quick-start): Full docs from `git clone` to deployment.
 
-This project used the amazing [CMSaasStarter](https://github.com/startino/saas-starter) as the groundwork for this template.
+This project used the amazing [CMSaasStarter](https://github.com/CriticalMoments/CMSaasStarter) as the groundwork for this template.
 
 ## Features
 
@@ -121,6 +121,8 @@ npm run dev -- --open
 
 **Note:** some features won't work until you complete the rest of the setup steps below!
 
+**Latest Update**: The authentication system has been improved with better error handling and simplified OAuth configuration. Google OAuth is now disabled by default - only GitHub OAuth is enabled to simplify initial setup.
+
 ## Setup Supabase Project
 
 - Create a Supabase account
@@ -163,7 +165,7 @@ npm run dev -- --open
 - Create a Stripe account
 - Create a product and price Tiers
   - Create your [products](https://stripe.com/docs/api/products) and their [prices](https://stripe.com/docs/api/prices) in the Dashboard or with the Stripe CLI.
-  - SaaS Starter works best if you define each tier as a separate product (eg, `SaaS Starter Free`, `Saas Starter Pro`, `Saas Starter Enterprise`). Include a monthly and annual price for each product if you want to support multiple billing periods.
+  - Full Stack Starter Pack works best if you define each tier as a separate product (eg, `Full Stack Starter Pack Free`, `Full Stack Starter Pack Pro`, `Full Stack Starter Pack Enterprise`). Include a monthly and annual price for each product if you want to support multiple billing periods.
   - You do not need to create a free plan in Stripe. The free plan is managed within the app.
 - Setup your environment
   - Get your [Secret API](https://dashboard.stripe.com/test/apikeys) key, and add it as an environment variable PRIVATE_STRIPE_API_KEY (`.env.local` locally, and Cloudflare environment for prod). Be sure to use test keys for development, and keep your production/live keys secret and secure.
@@ -182,7 +184,7 @@ npm run dev -- --open
 
 ## Setup Emailer -- Optional
 
-SaaS Starter includes email capabilities for sending emails to users and admins.
+Full Stack Starter Pack includes email capabilities for sending emails to users and admins.
 
 These are optional and disabled by default. See [email docs](email_docs.md) for details on how to enable and customize them.
 
@@ -212,3 +214,73 @@ After the steps above, you’ll have a working version like the demo page. Howev
   - Add actual SaaS functionality!
   - Replace the admin dashboard with real content (`/src/routes/(admin)/account/+page.svelte`).
   - Add API endpoints and database tables as needed to deliver your SaaS product.
+
+## Recent Updates & Changes
+
+### Authentication Improvements (Latest)
+
+This template has been updated with several authentication fixes and improvements:
+
+**🔧 Fixed Issues:**
+- **Fixed anonymous user redirects**: Anonymous users now properly redirect to sign-in when accessing protected routes like `/onboarding`
+- **Fixed sign-up flow**: Corrected sign-up process that was incorrectly using `updateUser` instead of `signUp`
+- **Fixed OAuth method**: Changed from `linkIdentity` to `signInWithOAuth` for proper OAuth authentication
+- **Fixed UUID errors**: Eliminated "invalid input syntax for type uuid: 'undefined'" errors by adding proper null checks
+
+**🎨 Configuration Changes:**
+- **Removed Google OAuth**: Template now comes with GitHub OAuth only to simplify setup. You can easily add Google or other providers by editing `/src/routes/(marketing)/login/login_config.ts`
+- **Improved auth state detection**: Fixed navigation showing "Sign Out" for anonymous users
+- **Enhanced error handling**: Better error messages for duplicate emails and auth failures
+
+**📱 User Experience:**
+- Anonymous users see "Sign In" button that leads to `/login` with both sign-in and sign-up options
+- Proper redirects after successful authentication
+- Email confirmation flow works correctly
+- Authenticated users are properly redirected to dashboard
+
+**⚙️ For Developers:**
+- Updated AGENT.md with comprehensive build/test commands and architecture documentation
+- All authentication edge cases now properly handled
+- Type-safe authentication state management
+
+### Migration Notes
+
+If you're updating an existing project:
+
+1. **OAuth Configuration**: Check `/src/routes/(marketing)/login/login_config.ts` - Google has been removed from the default providers list
+2. **Database**: Ensure you've run all migrations in `/supabase/migrations/` 
+3. **Environment**: No new environment variables required for these fixes
+
+### OAuth Configuration Details
+
+**Default**: GitHub OAuth only
+- Set `oauthProviders = ["github"]` in `login_config.ts`
+- Configure GitHub OAuth in Supabase Dashboard
+
+**Email-only**: Remove OAuth completely  
+- Set `oauthProviders = []` in `login_config.ts`
+
+**Add Google**: Re-enable Google OAuth
+- Set `oauthProviders = ["github", "google"]` in `login_config.ts`  
+- Configure Google OAuth in Supabase Dashboard
+
+## Troubleshooting
+
+### Common Authentication Issues
+
+**"Invalid input syntax for type uuid: 'undefined'" error:**
+- This has been fixed in the latest version. Ensure you're using the updated authentication code.
+- If you still see this, check that `session?.user?.id` exists before using it in database queries.
+
+**Sign up redirects to home page instead of confirmation:**
+- Ensure you're using the correct `signUp` method instead of `updateUser` in your sign-up action.
+- Check that your email redirect URL is correctly configured in Supabase.
+
+**"Sign Out" showing for anonymous users:**
+- This has been fixed. Anonymous users now see "Sign In" button.
+- If you still see this issue, check the authentication state logic in your layout files.
+
+**OAuth not working:**
+- Verify your OAuth provider is configured in both Supabase Dashboard and `login_config.ts`
+- Check that the callback URL matches between your provider settings and Supabase
+- Ensure you're using `signInWithOAuth` instead of the deprecated `linkIdentity` method

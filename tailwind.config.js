@@ -5,7 +5,14 @@ const config = {
   darkMode: ["class"],
   content: ["./src/**/*.{html,js,svelte,ts}"],
   safelist: ["dark"],
-  plugins: [require("@tailwindcss/typography")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  daisyui: {
+    themes: ["nord"],
+    darkTheme: "nord",
+    base: true,
+    styled: true,
+    utils: true,
+  },
   theme: {
     container: {
       center: true,

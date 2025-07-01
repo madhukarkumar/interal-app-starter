@@ -1,4 +1,4 @@
-# Agent Instructions for SaaS Starter
+# Agent Instructions for Full Stack Starter Pack
 
 ## Commands
 - **Build**: `npm run build` (uses vite, includes search index generation)
@@ -11,11 +11,12 @@
 
 ## Architecture
 SvelteKit full-stack app with TypeScript, Supabase backend, Stripe payments, and email via Resend.
-- **Frontend**: SvelteKit 2.0 + Svelte 5 + TypeScript + TailwindCSS + Bits UI components
+- **Frontend**: SvelteKit 2.0 + Svelte 5 + TypeScript + TailwindCSS + DaisyUI + Bits UI components
 - **Backend**: Supabase (auth, database, RLS) with server hooks
 - **Payments**: Stripe integration with webhooks
 - **Email**: Resend for transactional emails
 - **Testing**: Vitest with globals enabled, jsdom for DOM testing
+- **Theming**: DaisyUI with Nord theme enabled
 - **Structure**: `src/routes/` (pages with (admin)/(marketing) groups), `src/lib/` (utilities, components, schemas), `supabase/` (migrations, config)
 
 ## Code Style

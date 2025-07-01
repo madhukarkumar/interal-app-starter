@@ -18,7 +18,7 @@
       name: "Free to host",
       description:
         "Instructions included for Cloudflare+Supabase. Free to start, and cost effective to scale.",
-      link: "https://github.com/startino/saas-starter?tab=readme-ov-file#saas-starter-a-sveltekit-boilerplatetemplate",
+      link: "https://github.com/madhukarkumar/saas-starter?tab=readme-ov-file#full-stack-starter-pack",
       linkText: "Docs",
       newPage: true,
       svgContent: `<path d="M4.01207 15.7618L5.70156 10.6933C6.46758 8.39525 6.85059 7.24623 7.75684 7.03229C8.6631 6.81835 9.51953 7.67478 11.2324 9.38764L14.6114 12.7666C16.3242 14.4795 17.1807 15.3359 16.9667 16.2422C16.7528 17.1484 15.6038 17.5314 13.3057 18.2975L8.23724 19.987C5.47183 20.9088 4.08912 21.3697 3.35924 20.6398C2.62936 19.9099 3.09026 18.5272 4.01207 15.7618Z" stroke="#1C274C" stroke-width="1.5" stroke-linecap="round"/>
@@ -80,7 +80,7 @@
     },
     {
       name: "Billing Portal",
-      link: "/account/billing",
+      link: "#billing",
       description:
         "Self-serve portal for updating card, receipts, upgrades, downgrades and more.",
       svgContent: `<path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#1C274C" stroke-width="1.5"/>
@@ -89,7 +89,7 @@
     },
     {
       name: "User Dashboard",
-      link: "/account/settings",
+      link: "#settings",
       description:
         "User profile, user settings, update email/password, billing, and more.",
       svgContent: `<circle cx="12" cy="12" r="3" stroke="#1C274C" stroke-width="1.5"/>
@@ -233,7 +233,7 @@
       <div
         class="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-4 md:mb-8"
       >
-        SaaS Starter Demo
+        Full Stack Starter Pack Demo
       </div>
 
       <div

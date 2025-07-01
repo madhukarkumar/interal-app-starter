@@ -62,7 +62,7 @@
   <nav
     class="w-full h-20 flex items-center justify-between lg:block lg:w-80 lg:h-dvh p-4 bg-primary text-primary-foreground"
   >
-    <a href="/" class="text-xl font-bold inline lg:hidden">Saas Starter</a>
+    <a href="/" class="text-xl font-bold inline lg:hidden">Full Stack Starter Pack</a>
     <Dialog.Root bind:open>
       <Dialog.Trigger class="lg:hidden"
         ><button aria-label="open navigation"><Menu /></button></Dialog.Trigger
@@ -100,7 +100,7 @@
     </Dialog.Root>
     <ul class="hidden flex-col h-full lg:flex">
       <li class="mb-6">
-        <a href="/" class="text-xl font-bold">Saas Starter</a>
+        <a href="/" class="text-xl font-bold">Full Stack Starter Pack</a>
       </li>
 
       {#each navItems as item}

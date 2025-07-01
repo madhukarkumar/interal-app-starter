@@ -97,29 +97,17 @@
 <div class="">
   <div class="border-t max-w-[1000px] mx-auto"></div>
   <footer
-    class="grid gap-y-6 md:grid-cols-[auto_auto] p-10 gap-x-48 lg:gap-x-64 xl:gap-x-96 place-content-center text-base"
+    class="grid gap-y-6 p-10 place-content-center text-base"
   >
-    <nav class="grid gap-1 justify-center md:justify-end">
+    <nav class="grid gap-1 justify-center">
       <span class="font-bold text-2xl mb-2 block opacity-80">Explore</span>
       <a class="hover:underline" href="/">Overview</a>
       <a class="hover:underline" href="/pricing">Pricing</a>
       <a class="hover:underline" href="/blog">Blog</a>
       <a class="hover:underline" href="/contact_us">Contact Us</a>
-      <a class="hover:underline" href="https://github.com/startino/saas-starter"
+      <a class="hover:underline" href="https://github.com/madhukarkumar/saas-starter"
         >Github</a
       >
     </nav>
-    <aside>
-      <span class="text-center font-bold text-2xl mb-2 block opacity-80"
-        >Startino</span
-      >
-      <a class=" max-w-[260px]" href="https://criticalmoments.io">
-        <img
-          alt="Startino Logo"
-          src="/images/startino_logo.svg"
-          class="w-[150px] mb-3"
-        />
-      </a>
-    </aside>
   </footer>
 </div>
