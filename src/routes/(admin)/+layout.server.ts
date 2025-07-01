@@ -4,11 +4,16 @@ import { error } from "@sveltejs/kit"
 export const load = async ({ locals: { supabase, safeGetSession } }) => {
   const { session, user } = await safeGetSession()
 
+  // Don't query profile for anonymous users or when user ID is missing
+  if (!session?.user?.id || session.user.is_anonymous) {
+    return { session, profile: null, user }
+  }
+
   try {
     const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select(`*`)
-      .eq("id", session?.user.id as string)
+      .eq("id", session.user.id)
       .single()
 
     if (profileError) {

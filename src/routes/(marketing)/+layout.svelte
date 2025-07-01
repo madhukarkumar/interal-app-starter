@@ -23,14 +23,13 @@
           >Pricing</a
         >
       </li>
-      {#if data.auth.user?.is_anonymous && !environment.value}
+      {#if !data.auth.user || data.auth.user?.is_anonymous}
         <li class="md:mx-2">
-          <a href="/login/sign_in" class={buttonVariants({ variant: "ghost" })}
+          <a href="/login" class={buttonVariants({ variant: "ghost" })}
             >Sign In</a
           >
         </li>
-      {/if}
-      {#if !data.auth.user?.is_anonymous}
+      {:else}
         <li class="md:mx-2">
           <a href="/sign_out" class={buttonVariants({ variant: "ghost" })}
             >Sign Out</a
@@ -65,12 +64,11 @@
           <DropDownMenu.Item class="md:mx-2">
             <a href="/pricing" class="w-full">Pricing</a>
           </DropDownMenu.Item>
-          {#if data.auth.user?.is_anonymous && !environment.value}
+          {#if !data.auth.user || data.auth.user?.is_anonymous}
             <DropDownMenu.Item class="md:mx-2">
-              <a href="/login/sign_in">Sign In</a>
+              <a href="/login">Sign In</a>
             </DropDownMenu.Item>
-          {/if}
-          {#if !data.auth.user?.is_anonymous}
+          {:else}
             <DropDownMenu.Item class="md:mx-2">
               <a href="/sign_out" class="w-full">Sign Out</a>
             </DropDownMenu.Item>

@@ -69,12 +69,17 @@ const auth: Handle = async ({ event, resolve }) => {
 }
 
 const environment: Handle = async ({ event, resolve }) => {
-  const { data } = await event.locals.supabase
-    .from("environments_profiles")
-    .select("env:environments (*)")
-    .eq("profile_id", event.locals.auth.user?.id as string)
+  // Only query if user ID exists and user is not anonymous
+  if (event.locals.auth.user?.id && !event.locals.auth.user?.is_anonymous) {
+    const { data } = await event.locals.supabase
+      .from("environments_profiles")
+      .select("env:environments (*)")
+      .eq("profile_id", event.locals.auth.user.id)
 
-  event.locals.environment = data?.[0] ? data[0].env : null
+    event.locals.environment = data?.[0] ? data[0].env : null
+  } else {
+    event.locals.environment = null
+  }
 
   return resolve(event)
 }

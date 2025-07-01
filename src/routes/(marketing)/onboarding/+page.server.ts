@@ -2,10 +2,18 @@ import { setError, superValidate } from "sveltekit-superforms/server"
 import { zod } from "sveltekit-superforms/adapters"
 
 import { environmentSchema } from "$lib/schemas"
-import { fail } from "@sveltejs/kit"
+import { fail, redirect } from "@sveltejs/kit"
 import type { PostgrestError } from "@supabase/supabase-js"
 
-export const load = async () => {
+export const load = async ({ locals: { safeGetSession }, url }) => {
+  const { user } = await safeGetSession()
+  
+  // Redirect anonymous users to login
+  if (!user?.id || user.is_anonymous) {
+    const redirectTo = url.pathname + url.search
+    throw redirect(302, `/login/sign_up?redirectTo=${encodeURIComponent(redirectTo)}`)
+  }
+
   const form = await superValidate(zod(environmentSchema))
   return { form }
 }
@@ -22,13 +30,18 @@ export const actions = {
       return fail(400, { form, env: null })
     }
 
+    // Ensure user exists and has a valid ID
+    if (!user?.id || user.is_anonymous) {
+      return setError(form, "Please sign in to create an environment", { status: 401 })
+    }
+
     const slug = form.data.name.trim().toLowerCase().split(" ").join("-")
 
     try {
       const { error: profileError, data: profile } = await supabaseServiceRole
         .from("profiles")
         .select("id")
-        .eq("id", user?.id as string)
+        .eq("id", user.id)
         .single()
 
       if (profileError) {

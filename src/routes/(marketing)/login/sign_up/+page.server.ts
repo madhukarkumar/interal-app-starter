@@ -6,8 +6,9 @@ import { zod } from "sveltekit-superforms/adapters"
 export const load = async ({ locals: { safeGetSession } }) => {
   const { user } = await safeGetSession()
 
-  if (!user?.is_anonymous) {
-    return redirect(300, "/")
+  // If user is already authenticated (not anonymous), redirect to dashboard
+  if (user && !user.is_anonymous) {
+    return redirect(300, "/find-env")
   }
 
   const form = await superValidate(zod(signUpSchema))
@@ -16,23 +17,30 @@ export const load = async ({ locals: { safeGetSession } }) => {
 }
 
 export const actions = {
-  default: async ({ request, locals: { supabase } }) => {
+  default: async ({ request, locals: { supabase }, url }) => {
     const form = await superValidate(request, zod(signUpSchema))
 
     if (!form.valid) {
       return fail(400, { form })
     }
 
-    const { error: userError } = await supabase.auth.updateUser({
-      password: form.data.password,
+    const { error: userError } = await supabase.auth.signUp({
       email: form.data.email,
-      data: {
-        hasPassword: true,
+      password: form.data.password,
+      options: {
+        emailRedirectTo: `${url.origin}/auth/callback`,
+        data: {
+          hasPassword: true,
+        },
       },
     })
 
     if (userError) {
       console.error({ userError })
+
+      if (userError.message.includes("already registered")) {
+        return setError(form, "Email already registered. Try signing in instead.", { status: 400 })
+      }
 
       return setError(form, "Something went wrong...", { status: 500 })
     }
