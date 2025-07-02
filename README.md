@@ -111,7 +111,7 @@ On your development machine:
 
 ```
 git pull [Your Repo Created Above]
-cd SaasStarter ## or your repo name if different
+cd AppStarter ## or your repo name if different
 npm install
 ## Create an env file. You'll replace the values in this in later steps.
 cp local_env_template .env.local
@@ -190,7 +190,7 @@ These are optional and disabled by default. See [email docs](email_docs.md) for 
 
 ## Add Your Content
 
-After the steps above, you’ll have a working version like the demo page. However, it’s not branded, and doesn’t have your content. The following checklist helps you customize the template to make a SaaS homepage for your company.
+After the steps above, you’ll have a working version like the demo page. However, it’s not branded, and doesn’t have your content. The following checklist helps you customize the template to make an App homepage for your company.
 
 - Describe your site with a name, description and base URL in in `src/lib/config.ts:`. These values are used for SEO.
 - Content
@@ -211,9 +211,9 @@ After the steps above, you’ll have a working version like the demo page. Howev
   - The Authentication UI should automatically update based on your DaisyUI style, but check out the login in pages, and further design tweaks can be made in `src/routes/(marketing)/login/login_config.ts` (see [Auth UI](https://supabase.com/docs/guides/auth/auth-helpers/auth-ui#customization) for options).
 - Site Search: any [prerendered](https://kit.svelte.dev/docs/page-options#prerender) content will automatically be indexed by the site search. To exclude a page, add it to `excludePaths` in `src/lib/build_index.ts`.
 - Functionality
-  - Add actual SaaS functionality!
+  - Add actual App functionality!
   - Replace the admin dashboard with real content (`/src/routes/(admin)/account/+page.svelte`).
-  - Add API endpoints and database tables as needed to deliver your SaaS product.
+  - Add API endpoints and database tables as needed to deliver your App product.
 
 ## Recent Updates & Changes
 

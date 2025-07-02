@@ -3,7 +3,7 @@
 <p>
   We've written a detailed blog post about how we took this template, and
   created a real <a href="https://criticalmoments.io" target="_blank"
-    >SaaS company website</a
+    >App company website</a
   >. Topics include:
 </p>
 
