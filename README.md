@@ -49,7 +49,7 @@ Everything you need to get started for your app:
   - Framework: TailwindCSS
   - Component library: Shadcn-svelte
 - Suggested Hosting Stack
-  - Host: Vercel
+  - Host: Netlify
   - Authentication: Supabase Auth
   - Database: Supabase Postgres
 - Payments
