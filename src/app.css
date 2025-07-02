@@ -20,7 +20,7 @@
     --border: 220 13% 85%; /* Nord Snow Storm 2 */
     --input: 220 13% 85%;
  
-    --primary: 213 32% 52%; /* Nord Frost 1 (Blue) */
+    --primary: 221 83% 53%; /* DaisyUI Light Blue */
     --primary-foreground: 220 16% 96%;
  
     --secondary: 220 14% 93%;
@@ -32,7 +32,7 @@
     --destructive: 354 42% 56%; /* Nord Aurora 0 (Red) */
     --destructive-foreground: 220 16% 96%;
  
-    --ring: 213 32% 52%;
+    --ring: 221 83% 53%;
  
     --radius: 0.5rem;
   }

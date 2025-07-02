@@ -80,7 +80,7 @@
     },
     {
       name: "Billing Portal",
-      link: "#billing",
+      link: "/pricing",
       description:
         "Self-serve portal for updating card, receipts, upgrades, downgrades and more.",
       svgContent: `<path d="M7.5 18C8.32843 18 9 18.6716 9 19.5C9 20.3284 8.32843 21 7.5 21C6.67157 21 6 20.3284 6 19.5C6 18.6716 6.67157 18 7.5 18Z" stroke="#1C274C" stroke-width="1.5"/>
@@ -89,7 +89,7 @@
     },
     {
       name: "User Dashboard",
-      link: "#settings",
+      link: "/login",
       description:
         "User profile, user settings, update email/password, billing, and more.",
       svgContent: `<circle cx="12" cy="12" r="3" stroke="#1C274C" stroke-width="1.5"/>
@@ -227,77 +227,56 @@
   {@html jsonldScript}
 </svelte:head>
 
-<div class="hero min-h-[60vh]">
-  <div class="hero-content text-center py-12">
-    <div class="max-w-xl">
+<div class="hero min-h-screen bg-gradient-to-br from-primary/5 via-secondary/5 to-accent/5">
+  <div class="hero-content text-center">
+    <div class="max-w-4xl">
       <div
-        class="text-xl md:text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent mb-4 md:mb-8"
+        class="text-xl md:text-2xl font-semibold text-primary mb-6"
       >
-        Full Stack Starter Pack Demo
+        AI-Powered Product Marketing
       </div>
 
       <div
-        class="text-4xl md:text-6xl font-bold px-2"
-        style="line-height: 1.2;"
+        class="text-5xl md:text-7xl font-bold mb-6 text-foreground"
+        style="line-height: 1.1;"
       >
-        The
-        <span
-          class="underline decoration-secondary decoration-4 md:decoration-[6px]"
-          >open source</span
-        >,
-        <span
-          class="underline decoration-secondary decoration-4 md:decoration-[6px]"
-          >fast</span
-        >, and
-        <span
-          class="underline decoration-secondary decoration-4 md:decoration-[6px]"
-          >free to host</span
-        >
-        <span> SaaS template</span>
+        Your Pair Product Marketer Agent
       </div>
-      <div class="mt-6 md:mt-10 text-sm md:text-lg">
-        Built with <a
-          href="https://kit.svelte.dev"
-          class="link font-bold"
-          target="_blank">SvelteKit</a
-        >,
+      <p class="text-xl md:text-2xl mb-10 text-base-content/80 max-w-3xl mx-auto leading-relaxed">
+        Intelligent product marketing insights, automated campaign optimization, and data-driven strategies powered by AI.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
         <a
-          href="https://supabase.com"
-          class="underline font-bold"
-          target="_blank">Supabase</a
-        >,
-        <a href="https://stripe.com" class="underline font-bold" target="_blank"
-          >Stripe</a
-        >,
-        <a
-          href="https://tailwindcss.com"
-          class="underline font-bold"
-          target="_blank">Tailwind</a
-        >,
-        <a
-          href="https://shadcn-svelte.com/"
-          class="underline font-bold"
-          target="_blank">Shadcn-Svelte</a
-        >, and
-        <a
-          href="https://www.postgresql.org"
-          class="link font-bold"
-          target="_blank">Postgres</a
+          href="/onboarding"
+          class="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-300"
         >
-      </div>
-      <div class="mt-6 md:mt-2">
-        <a href="https://github.com/CriticalMoments/CMSaasStarter">
-          <button class={buttonVariants({ variant: "default" })}
-            >★ us on Github</button
-          >
+          Get Started
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
         </a>
         <a
-          href="https://github.com/CriticalMoments/CMSaasStarter/tree/main#saas-starter"
+          href="/pricing"
+          class="btn btn-outline btn-lg hover:shadow-lg transition-all duration-300"
         >
-          <button class={buttonVariants({ variant: "outline" })}
-            >Read the Docs</button
-          >
+          View Pricing
         </a>
+      </div>
+      
+      <div class="flex justify-center gap-8 text-sm text-base-content/60">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-success rounded-full"></div>
+          AI-Powered
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-success rounded-full"></div>
+          Real-time Analytics
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 bg-success rounded-full"></div>
+          Smart Automation
+        </div>
       </div>
     </div>
   </div>
