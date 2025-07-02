@@ -1,5 +1,5 @@
 <div align="center">
-    <img width="720" alt="SaaS Starter Header reading: The open source, fast, and free to host SaaS template" src="https://github.com/startino/saas-starter/blob/assets/banner.png">
+    <img width="720" alt="App Starter Header reading: The open source, fast, and free to host App template" src="https://github.com/startino/saas-starter/blob/assets/banner.png">
 
 [![GitHub Repo stars](https://img.shields.io/github/stars/madhukarkumar/saas-starter)](https://github.com/madhukarkumar/saas-starter)
 
@@ -25,7 +25,7 @@ This project used the amazing [CMSaasStarter](https://github.com/CriticalMoments
 
 ## Features
 
-Everything you need to get started for a SaaS company:
+Everything you need to get started for your app:
 
 - User Authentication: Sign up, sign out, forgot password, email verification, and oAuth. Powered by Supabase Auth. GDPR cookie warning for European users.
 - Marketing Page with SEO optimization
