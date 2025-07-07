@@ -14,6 +14,8 @@ export const load = async ({ data, depends }) => {
     PUBLIC_SUPABASE_ANON_KEY,
   )
 
+  // Note: Using getSession() on client-side for auth state management
+  // Server-side validation is handled by safeGetSession() in +layout.server.ts
   const {
     data: { session },
   } = await supabase.auth.getSession()

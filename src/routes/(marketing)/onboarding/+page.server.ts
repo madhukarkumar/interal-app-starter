@@ -38,13 +38,26 @@ export const actions = {
     const slug = form.data.name.trim().toLowerCase().split(" ").join("-")
 
     try {
-      const { error: profileError, data: profile } = await supabaseServiceRole
+      // Check if profile exists, create if not
+      let { error: profileError, data: profile } = await supabaseServiceRole
         .from("profiles")
         .select("id")
         .eq("id", user.id)
         .single()
 
-      if (profileError) {
+      if (profileError?.code === "PGRST116") {
+        // Profile doesn't exist, create it
+        const { error: createError, data: newProfile } = await supabaseServiceRole
+          .from("profiles")
+          .insert({ id: user.id })
+          .select("id")
+          .single()
+
+        if (createError) {
+          throw createError
+        }
+        profile = newProfile
+      } else if (profileError) {
         throw profileError
       }
 
