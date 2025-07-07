@@ -1,13 +1,14 @@
 # Agent Instructions for Full Stack Starter Pack
 
 ## Commands
-- **Build**: `npm run build` (uses vite, includes search index generation)
-- **Dev**: `npm run dev` (vite dev server)
-- **Test**: `npm run test` (vitest watch mode) or `npm run test_run` (single run)
-- **Single test**: `npm run test -- filename.test.ts` or `vitest run filename.test.ts`
-- **Lint**: `npm run lint` (ESLint)
-- **Format**: `npm run format` (write) or `npm run format_check` (check only)
-- **Type check**: `npm run check` or `npm run check:watch` (svelte-check)
+- **Build**: `pnpm run build` (uses vite, includes search index generation)
+- **Dev**: `pnpm run dev` (vite dev server)
+- **Test**: `pnpm run test` (vitest watch mode) or `pnpm run test_run` (single run)
+- **Single test**: `pnpm run test -- filename.test.ts` or `vitest run filename.test.ts`
+- **Lint**: `pnpm run lint` (ESLint)
+- **Format**: `pnpm run format` (write) or `pnpm run format_check` (check only)
+- **Type check**: `pnpm run check` or `pnpm run check:watch` (svelte-check)
+- **Package manager**: Use pnpm for all package management
 
 ## Architecture
 SvelteKit full-stack app with TypeScript, Supabase backend, Stripe payments, and email via Resend.
